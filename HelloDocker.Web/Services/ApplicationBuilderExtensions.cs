@@ -15,8 +15,7 @@ namespace HelloDocker.Web.Services
     {
         public static IApplicationBuilder RegisterWithConsul(this IApplicationBuilder app, IApplicationLifetime lifetime)
         {
-            //var consulClient = new ConsulClient(x=>x.Address=new Uri($"http://{Program.IP}:8500"));
-            var consulClient = new ConsulClient(x=>x.Address=new Uri($"http://10.9.10.89:8500"));
+            var consulClient = new ConsulClient(x=>x.Address=new Uri($"http://{Program.IP}:8500"));
             var httpCheck = new AgentServiceCheck()
             {
                 DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(5),

@@ -23,7 +23,7 @@ namespace HelloDocker.Web
         public static void Main(string[] args)
         {
             //Program.IP = LocalIPAddress;
-            Program.IP = "10.9.10.190";
+            Program.IP = "10.9.10.89";
             BuildWebHost(args).Run();
         }
 
