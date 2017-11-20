@@ -1,5 +1,5 @@
 consul:
-  command: -bind=10.9.10.89 -client=0.0.0.0 -node=vagrant-ubuntu-xishuai -retry-join=10.9.2.247
+  command: agent -bind=10.9.10.89 -client=0.0.0.0 -node=vagrant-ubuntu-xishuai -retry-join=10.9.2.247
   image: consul:latest
   ports:
     - 8300:8300
@@ -8,16 +8,17 @@ consul:
     - 8600:53/udp
   net: host
 fabio:
-  depends_on:
-    - consul
   image: magiconair/fabio:latest
   ports:
     - 9999:9999
     - 9998:9998
-  links:
-    - consul
   net: host
   volumes:
     - /etc/fabio/fabio.properties:/etc/fabio/fabio.properties
   environment:
   - SERVICE_9998_TAGS=urlprefix-/fabio
+hello-docker:
+  ports:
+    - 54917:54917
+  build: .
+  net: host
