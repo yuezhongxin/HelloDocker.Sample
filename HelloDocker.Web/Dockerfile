@@ -13,4 +13,4 @@ RUN dotnet publish -c Release -o out
 FROM microsoft/aspnetcore
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "AQHG.DX.MaintenanceForm.Web.dll"]
+ENTRYPOINT ["dotnet", "HelloDocker.dll"]
