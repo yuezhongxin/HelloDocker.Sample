@@ -1,6 +1,7 @@
 bin/
 obj/
 *.suo
+.DS_Store
 logs/
 Backup/
 packages/*/
