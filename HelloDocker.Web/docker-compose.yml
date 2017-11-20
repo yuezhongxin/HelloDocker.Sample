@@ -6,7 +6,7 @@ consul:
     - 8400:8400
     - 8500:8500
     - 8600:53/udp
-  network_mode: host
+  net: host
 fabio:
   depends_on:
     - consul
@@ -16,16 +16,8 @@ fabio:
     - 9998:9998
   links:
     - consul
-  network_mode: host
+  net: host
   volumes:
     - /etc/fabio/fabio.properties:/etc/fabio/fabio.properties
   environment:
   - SERVICE_9998_TAGS=urlprefix-/fabio
-
-hello-docker:
-  depends_on:
-    - fabio
-  ports:
-    - 54917:54917
-  build: .
-  net: host
